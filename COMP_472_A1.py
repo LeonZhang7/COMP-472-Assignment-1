@@ -186,13 +186,13 @@ evaluate_classifier(abalone_y_test, y_pred_top_mlp_aba, "Top MLP", "abalone")
 #     file.write(f"Accuracy: {accuracy_score(y_true, y_pred)}\n")
 
 # with open('penguin-performance.txt', 'w') as file:
-#     evaluate_classifier(penguins_y_test, y_pred_base_dt, "Base Decision Tree", file)
-#     evaluate_classifier(penguins_y_test, y_pred_top_dt, "Top Decision Tree", file)
-#     evaluate_classifier(penguins_y_test, y_pred_base_mlp, "Base MLP", file)
-#     evaluate_classifier(penguins_y_test, y_pred_top_mlp, "Top MLP", file)
+#     evaluate_classifier(penguins_y_test, y_pred_base_dt, "Base Decision Tree", file, "penguin")
+#     evaluate_classifier(penguins_y_test, y_pred_top_dt, "Top Decision Tree", file, "penguin")
+#     evaluate_classifier(penguins_y_test, y_pred_base_mlp, "Base MLP", file, "penguin")
+#     evaluate_classifier(penguins_y_test, y_pred_top_mlp, "Top MLP", file, "penguin")
 
-# with open('abalone-performance.txt', 'w') as file:
-#     evaluate_classifier(abalone_y_test, y_pred_base_dt_aba, "Base Decision Tree", "abalone")
-#     evaluate_classifier(abalone_y_test, y_pred_top_dt_aba, "Top Decision Tree", "abalone")
-#     evaluate_classifier(abalone_y_test, y_pred_base_mlp_aba, "Base MLP", "abalone")
-#     evaluate_classifier(abalone_y_test, y_pred_top_mlp_aba, "Top MLP", "abalone")
+# with open('abalone-performance.txt', 'w') as file_aba:
+#     evaluate_classifier(abalone_y_test, y_pred_base_dt_aba, "Base Decision Tree", file_aba, "abalone")
+#     evaluate_classifier(abalone_y_test, y_pred_top_dt_aba, "Top Decision Tree", file_aba, "abalone")
+#     evaluate_classifier(abalone_y_test, y_pred_base_mlp_aba, "Base MLP", file_aba,"abalone")
+#     evaluate_classifier(abalone_y_test, y_pred_top_mlp_aba, "Top MLP", file_aba, "abalone")
