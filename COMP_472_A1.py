@@ -4,8 +4,11 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+from sklearn.preprocessing import LabelEncoder
+from PIL import Image
 import matplotlib.pyplot as plt
 
+#part 1
 abalone_data = pd.read_csv('abalone.csv')
 penguins_data = pd.read_csv('penguins.csv')
 
@@ -13,8 +16,20 @@ penguins_data = pd.read_csv('penguins.csv')
 column_names = penguins_data.columns
 print(column_names)
 
+#uncomment either method you want to use
+#part 1 a)
 # One-Hot Encoding for 'island' and 'sex' columns
 penguins_data = pd.get_dummies(penguins_data, columns=['island', 'sex'], drop_first=True)
+
+#part 1 b)
+# Convert 'island' and 'sex' features into categories 
+# label_encoder_island = LabelEncoder()
+# penguins_data['island'] = label_encoder_island.fit_transform(penguins_data['island'])
+
+# label_encoder_sex = LabelEncoder()
+# penguins_data['sex'] = label_encoder_sex.fit_transform(penguins_data['sex'])
+
+
 
 # Define features and target for the penguins dataset
 penguins_features = penguins_data.drop(columns=['species']) 
@@ -27,6 +42,26 @@ abalone_target = abalone_data['Rings']
 
 penguins_X_train, penguins_X_test, penguins_y_train, penguins_y_test = train_test_split(penguins_features, penguins_target, test_size=0.2, random_state=42)
 abalone_X_train, abalone_X_test, abalone_y_train, abalone_y_test = train_test_split(abalone_features, abalone_target, test_size=0.2, random_state=42)
+
+# Calculate class distribution in the penguins target variable
+class_distribution = penguins_target.value_counts(normalize=True) * 100
+
+# Plot the class distribution
+plt.figure(figsize=(8, 6))
+class_distribution.plot(kind='bar', color='skyblue')
+plt.xlabel('Species')
+plt.ylabel('Percentage of Instances')
+plt.title('Class Distribution in Penguins Dataset')
+plt.xticks(rotation=0)
+plt.tight_layout()
+plt.savefig('penguin-classes.png')
+plt.show()
+
+# Open the PNG file
+png_image = Image.open('penguin-classes.png')
+
+# Convert and save as GIF
+png_image.save('penguin-classes.gif')
 
 # Base Decision Tree
 base_dt = DecisionTreeClassifier()
