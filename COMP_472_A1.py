@@ -152,47 +152,47 @@ y_pred_top_mlp_aba = top_mlp.predict(abalone_X_test)
 
 
 #Evaluate and print results
-def evaluate_classifier(y_true, y_pred, classifier_name, data_set):
-    print(f"Data Set: {data_set}")
-    print(f"Classifier: {classifier_name}")
-    print("Confusion Matrix:\n", confusion_matrix(y_true, y_pred))
-    print("Classification Report:\n", classification_report(y_true, y_pred))
-    print(f"Accuracy: {accuracy_score(y_true, y_pred)}\n")
+# def evaluate_classifier(y_true, y_pred, classifier_name, data_set):
+#     print(f"Data Set: {data_set}")
+#     print(f"Classifier: {classifier_name}")
+#     print("Confusion Matrix:\n", confusion_matrix(y_true, y_pred))
+#     print("Classification Report:\n", classification_report(y_true, y_pred))
+#     print(f"Accuracy: {accuracy_score(y_true, y_pred)}\n")
 
-evaluate_classifier(penguins_y_test, y_pred_base_dt, "Base Decision Tree", "penguin")
-evaluate_classifier(penguins_y_test, y_pred_top_dt, "Top Decision Tree", "penguin")
-evaluate_classifier(penguins_y_test, y_pred_base_mlp, "Base MLP", "penguin")
-evaluate_classifier(penguins_y_test, y_pred_top_mlp, "Top MLP", "penguin")
+# evaluate_classifier(penguins_y_test, y_pred_base_dt, "Base Decision Tree", "penguin")
+# evaluate_classifier(penguins_y_test, y_pred_top_dt, "Top Decision Tree", "penguin")
+# evaluate_classifier(penguins_y_test, y_pred_base_mlp, "Base MLP", "penguin")
+# evaluate_classifier(penguins_y_test, y_pred_top_mlp, "Top MLP", "penguin")
 
-evaluate_classifier(abalone_y_test, y_pred_base_dt_aba, "Base Decision Tree", "abalone")
-evaluate_classifier(abalone_y_test, y_pred_top_dt_aba, "Top Decision Tree", "abalone")
-evaluate_classifier(abalone_y_test, y_pred_base_mlp_aba, "Base MLP", "abalone")
-evaluate_classifier(abalone_y_test, y_pred_top_mlp_aba, "Top MLP", "abalone")
+# evaluate_classifier(abalone_y_test, y_pred_base_dt_aba, "Base Decision Tree", "abalone")
+# evaluate_classifier(abalone_y_test, y_pred_top_dt_aba, "Top Decision Tree", "abalone")
+# evaluate_classifier(abalone_y_test, y_pred_base_mlp_aba, "Base MLP", "abalone")
+# evaluate_classifier(abalone_y_test, y_pred_top_mlp_aba, "Top MLP", "abalone")
 
 
 
 
 #Print in output file, we can remove the printing in terminal for just the file after finishing 
 
-# def evaluate_classifier(y_true, y_pred, classifier_name, file, data_set):
-#     file.write('-' * 50 + '\n')
-#     file.write(f"Data Set: {data_set}"+ '\n')
-#     file.write("(A)"+ '\n')
-#     file.write(f"Classifier: {classifier_name}\n")
-#     file.write("(B)"+ '\n')
-#     file.write("Confusion Matrix:\n" + str(confusion_matrix(y_true, y_pred)) + "\n")
-#     file.write("(C)"+ "(D)"+  '\n')
-#     file.write("Classification Report:\n" + str(classification_report(y_true, y_pred)) + "\n")
-#     file.write(f"Accuracy: {accuracy_score(y_true, y_pred)}\n")
+def evaluate_classifier(y_true, y_pred, classifier_name, file, data_set):
+    file.write('-' * 50 + '\n')
+    file.write(f"Data Set: {data_set}"+ '\n')
+    file.write("(A)"+ '\n')
+    file.write(f"Classifier: {classifier_name}\n")
+    file.write("(B)"+ '\n')
+    file.write("Confusion Matrix:\n" + str(confusion_matrix(y_true, y_pred)) + "\n")
+    file.write("(C)"+ "(D)"+  '\n')
+    file.write("Classification Report:\n" + str(classification_report(y_true, y_pred)) + "\n")
+    file.write(f"Accuracy: {accuracy_score(y_true, y_pred)}\n")
 
-# with open('penguin-performance.txt', 'w') as file:
-#     evaluate_classifier(penguins_y_test, y_pred_base_dt, "Base Decision Tree", file, "penguin")
-#     evaluate_classifier(penguins_y_test, y_pred_top_dt, "Top Decision Tree", file, "penguin")
-#     evaluate_classifier(penguins_y_test, y_pred_base_mlp, "Base MLP", file, "penguin")
-#     evaluate_classifier(penguins_y_test, y_pred_top_mlp, "Top MLP", file, "penguin")
+with open('penguin-performance.txt', 'w') as file:
+    evaluate_classifier(penguins_y_test, y_pred_base_dt, "Base Decision Tree", file, "penguin")
+    evaluate_classifier(penguins_y_test, y_pred_top_dt, "Top Decision Tree", file, "penguin")
+    evaluate_classifier(penguins_y_test, y_pred_base_mlp, "Base MLP", file, "penguin")
+    evaluate_classifier(penguins_y_test, y_pred_top_mlp, "Top MLP", file, "penguin")
 
-# with open('abalone-performance.txt', 'w') as file_aba:
-#     evaluate_classifier(abalone_y_test, y_pred_base_dt_aba, "Base Decision Tree", file_aba, "abalone")
-#     evaluate_classifier(abalone_y_test, y_pred_top_dt_aba, "Top Decision Tree", file_aba, "abalone")
-#     evaluate_classifier(abalone_y_test, y_pred_base_mlp_aba, "Base MLP", file_aba,"abalone")
-#     evaluate_classifier(abalone_y_test, y_pred_top_mlp_aba, "Top MLP", file_aba, "abalone")
+with open('abalone-performance.txt', 'w') as file_aba:
+    evaluate_classifier(abalone_y_test, y_pred_base_dt_aba, "Base Decision Tree", file_aba, "abalone")
+    evaluate_classifier(abalone_y_test, y_pred_top_dt_aba, "Top Decision Tree", file_aba, "abalone")
+    evaluate_classifier(abalone_y_test, y_pred_base_mlp_aba, "Base MLP", file_aba,"abalone")
+    evaluate_classifier(abalone_y_test, y_pred_top_mlp_aba, "Top MLP", file_aba, "abalone")
