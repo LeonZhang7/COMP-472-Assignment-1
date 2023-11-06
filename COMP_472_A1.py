@@ -40,9 +40,8 @@ abalone_features = abalone_data.drop(columns=['Rings'])
 abalone_target = abalone_data['Rings'] 
 
 
-penguins_X_train, penguins_X_test, penguins_y_train, penguins_y_test = train_test_split(penguins_features, penguins_target, test_size=0.2, random_state=42)
-abalone_X_train, abalone_X_test, abalone_y_train, abalone_y_test = train_test_split(abalone_features, abalone_target, test_size=0.2, random_state=42)
 
+#part 2
 # Calculate class distribution in the penguins target variable
 class_distribution = penguins_target.value_counts(normalize=True) * 100
 
@@ -57,18 +56,40 @@ plt.tight_layout()
 plt.savefig('penguin-classes.png')
 plt.show()
 
+# Calculate class distribution in the abalone target variable
+class_distribution = abalone_target.value_counts(normalize=True) * 100
+
+# Plot the class distribution
+plt.figure(figsize=(8, 6))
+class_distribution.plot(kind='bar', color='skyblue')
+plt.xlabel('Rings')
+plt.ylabel('Percentage of Instances')
+plt.title('Class Distribution in Abalone Dataset')
+plt.xticks(rotation=0)
+plt.tight_layout()
+plt.savefig('abalone-classes.png')
+plt.show()
+
 # Open the PNG file
-png_image = Image.open('penguin-classes.png')
+png_image = Image.open('abalone-classes.png')
 
 # Convert and save as GIF
-png_image.save('penguin-classes.gif')
+png_image.save('abalone-classes.gif')
 
-# Base Decision Tree
+
+
+#part 3
+penguins_X_train, penguins_X_test, penguins_y_train, penguins_y_test = train_test_split(penguins_features, penguins_target, test_size=0.2, random_state=42)
+abalone_X_train, abalone_X_test, abalone_y_train, abalone_y_test = train_test_split(abalone_features, abalone_target, test_size=0.2, random_state=42)
+
+
+#part 4
+# a) Base Decision Tree
 base_dt = DecisionTreeClassifier()
 base_dt.fit(penguins_X_train, penguins_y_train)
 y_pred_base_dt = base_dt.predict(penguins_X_test)
 
-# Top Decision Tree with GridSearch
+# b) Top Decision Tree with GridSearch
 param_grid = {
     'criterion': ['gini', 'entropy'],
     'max_depth': [None, 5, 10],  # Add more values
@@ -79,12 +100,12 @@ grid_search.fit(penguins_X_train, penguins_y_train)
 top_dt = grid_search.best_estimator_
 y_pred_top_dt = top_dt.predict(penguins_X_test)
 
-# Base MLP
+# c) Base MLP
 base_mlp = MLPClassifier(hidden_layer_sizes=(100, 100), activation='logistic', solver='sgd', max_iter=1000)
 base_mlp.fit(penguins_X_train, penguins_y_train)
 y_pred_base_mlp = base_mlp.predict(penguins_X_test)
 
-# Top MLP with GridSearch
+# d) Top MLP with GridSearch
 param_grid = {
     'activation': ['logistic', 'tanh', 'relu'],
     'hidden_layer_sizes': [(30, 50), (10, 10, 10)],  # Add more architectures
@@ -95,7 +116,11 @@ grid_search.fit(penguins_X_train, penguins_y_train)
 top_mlp = grid_search.best_estimator_
 y_pred_top_mlp = top_mlp.predict(penguins_X_test)
 
-# Evaluate and print results
+
+#part 5
+
+
+#Evaluate and print results
 def evaluate_classifier(y_true, y_pred, classifier_name):
     print(f"Classifier: {classifier_name}")
     print("Confusion Matrix:\n", confusion_matrix(y_true, y_pred))
@@ -106,3 +131,26 @@ evaluate_classifier(penguins_y_test, y_pred_base_dt, "Base Decision Tree")
 evaluate_classifier(penguins_y_test, y_pred_top_dt, "Top Decision Tree")
 evaluate_classifier(penguins_y_test, y_pred_base_mlp, "Base MLP")
 evaluate_classifier(penguins_y_test, y_pred_top_mlp, "Top MLP")
+
+#TODO
+#evaluate abalone
+
+
+
+#Print in output file, we can remove the printing in terminal for just the file after finishing 
+
+# def evaluate_classifier(y_true, y_pred, classifier_name, file):
+#     file.write('-' * 50 + '\n')
+#     file.write("(A)"+ '\n')
+#     file.write(f"Classifier: {classifier_name}\n")
+#     file.write("(B)"+ '\n')
+#     file.write("Confusion Matrix:\n" + str(confusion_matrix(y_true, y_pred)) + "\n")
+#     file.write("(C)"+ "(D)"+  '\n')
+#     file.write("Classification Report:\n" + str(classification_report(y_true, y_pred)) + "\n")
+#     file.write(f"Accuracy: {accuracy_score(y_true, y_pred)}\n")
+
+# with open('penguin-performance.txt', 'w') as file:
+#     evaluate_classifier(penguins_y_test, y_pred_base_dt, "Base Decision Tree", file)
+#     evaluate_classifier(penguins_y_test, y_pred_top_dt, "Top Decision Tree", file)
+#     evaluate_classifier(penguins_y_test, y_pred_base_mlp, "Base MLP", file)
+#     evaluate_classifier(penguins_y_test, y_pred_top_mlp, "Top MLP", file)
