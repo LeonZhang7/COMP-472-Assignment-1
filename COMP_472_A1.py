@@ -7,8 +7,10 @@ from sklearn.metrics import classification_report, confusion_matrix, accuracy_sc
 from sklearn.preprocessing import LabelEncoder
 from PIL import Image
 import matplotlib.pyplot as plt
+from sklearn.tree import plot_tree
 
 #part 1
+#Load the dataset in Python
 abalone_data = pd.read_csv('abalone.csv')
 penguins_data = pd.read_csv('penguins.csv')
 
@@ -24,6 +26,7 @@ print(column_names_aba)
 #uncomment either method you want to use
 #part 1 a)
 # One-Hot Encoding for 'island' and 'sex' columns
+#get_dummies is used to convert 'island' and 'sex' into one-hot encoded vectors.
 penguins_data = pd.get_dummies(penguins_data, columns=['island', 'sex'], drop_first=True)
 
 #part 1 b)
@@ -84,6 +87,8 @@ png_image.save('abalone-classes.gif')
 
 
 #part 3
+#split both the Penguins and Abalone datasets into training and test sets.
+# The code uses a test size of 0.2 (which means 20% of the data will be used for testing, and the remaining 80% for training
 penguins_X_train, penguins_X_test, penguins_y_train, penguins_y_test = train_test_split(penguins_features, penguins_target, test_size=0.2, random_state=42)
 abalone_X_train, abalone_X_test, abalone_y_train, abalone_y_test = train_test_split(abalone_features, abalone_target, test_size=0.2, random_state=42)
 
@@ -95,10 +100,27 @@ base_dt = DecisionTreeClassifier()
 base_dt.fit(penguins_X_train, penguins_y_train)
 y_pred_base_dt = base_dt.predict(penguins_X_test)
 
+# Plot the decision tree
+plt.figure(figsize=(20,10))
+plot_tree(base_dt, filled=True, feature_names=penguins_features.columns, class_names=base_dt.classes_)
+plt.title('Decision Tree for Penguins Dataset')
+plt.savefig('penguins_decision_tree.png')
+plt.show()
+
+
 #abalone
+# Fit the classifier without limiting depth
 base_dt = DecisionTreeClassifier()
 base_dt.fit(abalone_X_train, abalone_y_train)
 y_pred_base_dt_aba = base_dt.predict(abalone_X_test)
+
+# # Plot the decision tree with limited depth
+plt.figure(figsize=(20,10))
+plot_tree(base_dt, filled=True, feature_names=abalone_features.columns, class_names=base_dt.classes_, max_depth=2 )
+plt.title('Decision Tree for Abalone Dataset')
+plt.savefig('abalone_decision_tree.png')
+plt.show()
+
 
 # b) Top Decision Tree with GridSearch
 param_grid = {
@@ -112,11 +134,26 @@ grid_search.fit(penguins_X_train, penguins_y_train)
 top_dt = grid_search.best_estimator_
 y_pred_top_dt = top_dt.predict(penguins_X_test)
 
+# Plot the decision tree of the best estimator
+plt.figure(figsize=(20, 10))
+plot_tree(top_dt, filled=True, feature_names=penguins_features.columns, class_names=top_dt.classes_)
+plt.title('Top Decision Tree for Penguins Dataset')
+plt.savefig('penguins_top_decision_tree.png')
+plt.show()
+
 #abalone
 grid_search = GridSearchCV(DecisionTreeClassifier(), param_grid, cv=5)
 grid_search.fit(abalone_X_train, abalone_y_train)
-top_dt = grid_search.best_estimator_
-y_pred_top_dt_aba = top_dt.predict(abalone_X_test)
+top_dt_aba = grid_search.best_estimator_
+y_pred_top_dt_aba = top_dt_aba.predict(abalone_X_test)
+
+# Plot the decision tree of the best estimator found by GridSearchCV
+plt.figure(figsize=(20, 10))
+plot_tree(top_dt_aba, filled=True, feature_names=abalone_features.columns, class_names=top_dt_aba.classes_, max_depth=2)
+plt.title('Top Decision Tree for Abalone Dataset')
+plt.savefig('abalone_top_decision_tree.png')
+plt.show()
+
 
 # c) Base MLP
 #penguin
@@ -131,9 +168,9 @@ y_pred_base_mlp_aba = base_mlp.predict(abalone_X_test)
 
 # d) Top MLP with GridSearch
 param_grid = {
-    'activation': ['logistic', 'tanh', 'relu'],
-    'hidden_layer_sizes': [(30, 50), (10, 10, 10)],  # Add more architectures
-    'solver': ['adam', 'sgd']
+    'activation': ['logistic', 'tanh', 'relu'],  # 'logistic' is another name for 'sigmoid'
+    'hidden_layer_sizes': [(30, 50), (10, 10, 10)],  # Two network architectures of your choice
+    'solver': ['adam', 'sgd']  # Both 'adam' and 'stochastic gradient descent'
 }
 #penguin
 grid_search = GridSearchCV(MLPClassifier(), param_grid, cv=5)
