@@ -9,6 +9,7 @@ from PIL import Image
 import matplotlib.pyplot as plt
 from sklearn.tree import plot_tree
 import numpy as np
+from sklearn.metrics import f1_score
 
 #part 1
 #Load the dataset in Python
@@ -185,9 +186,9 @@ y_pred_top_mlp = top_mlp.predict(penguins_X_test)
 #abalone
 grid_search = GridSearchCV(MLPClassifier(), param_grid, cv=5)
 grid_search.fit(abalone_X_train, abalone_y_train)
-top_mlp = grid_search.best_estimator_
+top_mlp_aba = grid_search.best_estimator_
 best_mlp_aba = grid_search.best_params_
-y_pred_top_mlp_aba = top_mlp.predict(abalone_X_test)
+y_pred_top_mlp_aba = top_mlp_aba.predict(abalone_X_test)
 
 
 #part 5
@@ -225,6 +226,49 @@ with open('abalone-performance.txt', 'w') as file_aba:
     evaluate_classifier(abalone_y_test, y_pred_base_mlp_aba, "Base MLP", file_aba,"abalone")
     evaluate_classifier(abalone_y_test, y_pred_top_mlp_aba, "Top MLP", file_aba, "abalone")
 
+def repeat_experiment(model, X_train, X_test, y_train, y_test, model_name, file, data_set):
+    accuracies = []
+    macro_f1s = []
+    weighted_f1s = []
+
+    for i in range(5):  # Repeat the experiment 5 times
+        model.fit(X_train, y_train)
+        y_pred = model.predict(X_test)
+
+        # Append information to the performance file
+        evaluate_classifier(y_test, y_pred, model_name, file, data_set)
+
+        # Append metrics for later analysis
+        accuracies.append(accuracy_score(y_test, y_pred))
+        macro_f1s.append(f1_score(y_test, y_pred, average='macro'))
+        weighted_f1s.append(f1_score(y_test, y_pred, average='weighted'))
+
+    # Calculate and append average and variance to the performance file
+    file.write(f"A) Average Accuracy: {np.mean(accuracies)}, Variance: {np.var(accuracies)}\n")
+    file.write(f"B) Average Macro-average F1: {np.mean(macro_f1s)}, Variance: {np.var(macro_f1s)}\n")
+    file.write(f"C) Average Weighted-average F1: {np.mean(weighted_f1s)}, Variance: {np.var(weighted_f1s)}\n")
+
+
+# Repeat the experiment for each model 5 times
+with open('penguin-performance.txt', 'a') as file:
+    repeat_experiment(DecisionTreeClassifier(), penguins_X_train, penguins_X_test, penguins_y_train, penguins_y_test,
+                      "Base Decision Tree", file, "penguin")
+    repeat_experiment(top_dt, penguins_X_train, penguins_X_test, penguins_y_train, penguins_y_test, "Top Decision Tree",
+                      file, "penguin")
+    repeat_experiment(MLPClassifier(), penguins_X_train, penguins_X_test, penguins_y_train, penguins_y_test, "Base MLP",
+                      file, "penguin")
+    repeat_experiment(top_mlp, penguins_X_train, penguins_X_test, penguins_y_train, penguins_y_test, "Top MLP", file,
+                      "penguin")
+
+with open('abalone-performance.txt', 'a') as file_aba:
+    repeat_experiment(DecisionTreeClassifier(), abalone_X_train, abalone_X_test, abalone_y_train, abalone_y_test,
+                      "Base Decision Tree", file_aba, "abalone")
+    repeat_experiment(top_dt_aba, abalone_X_train, abalone_X_test, abalone_y_train, abalone_y_test, "Top Decision Tree",
+                      file_aba, "abalone")
+    repeat_experiment(MLPClassifier(), abalone_X_train, abalone_X_test, abalone_y_train, abalone_y_test, "Base MLP",
+                      file_aba, "abalone")
+    repeat_experiment(top_mlp_aba, abalone_X_train, abalone_X_test, abalone_y_train, abalone_y_test, "Top MLP", file_aba,
+                      "abalone")
 #6 
 # # Initialize lists to store metrics for each run
 # accuracies = []
