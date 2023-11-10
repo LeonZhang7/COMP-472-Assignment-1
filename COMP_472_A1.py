@@ -130,9 +130,10 @@ param_grid = {
     'min_samples_split': [2, 5, 10]  # Add more values
 }
 #penguin
-grid_search = GridSearchCV(DecisionTreeClassifier(), param_grid, cv=5)
-grid_search.fit(penguins_X_train, penguins_y_train)
-top_dt = grid_search.best_estimator_
+grid_search_DT = GridSearchCV(DecisionTreeClassifier(), param_grid, cv=5)
+grid_search_DT.fit(penguins_X_train, penguins_y_train)
+top_dt = grid_search_DT.best_estimator_
+best_dt = grid_search_DT.best_params_
 y_pred_top_dt = top_dt.predict(penguins_X_test)
 
 # Plot the decision tree of the best estimator
@@ -143,9 +144,10 @@ plt.savefig('penguins_top_decision_tree.png')
 plt.show()
 
 #abalone
-grid_search = GridSearchCV(DecisionTreeClassifier(), param_grid, cv=5)
-grid_search.fit(abalone_X_train, abalone_y_train)
-top_dt_aba = grid_search.best_estimator_
+grid_search_DT = GridSearchCV(DecisionTreeClassifier(), param_grid, cv=5)
+grid_search_DT.fit(abalone_X_train, abalone_y_train)
+top_dt_aba = grid_search_DT.best_estimator_
+best_dt_aba = grid_search_DT.best_params_
 y_pred_top_dt_aba = top_dt_aba.predict(abalone_X_test)
 
 # Plot the decision tree of the best estimator found by GridSearchCV
@@ -177,38 +179,18 @@ param_grid = {
 grid_search = GridSearchCV(MLPClassifier(), param_grid, cv=5)
 grid_search.fit(penguins_X_train, penguins_y_train)
 top_mlp = grid_search.best_estimator_
+best_mlp = grid_search.best_params_
 y_pred_top_mlp = top_mlp.predict(penguins_X_test)
 
 #abalone
 grid_search = GridSearchCV(MLPClassifier(), param_grid, cv=5)
 grid_search.fit(abalone_X_train, abalone_y_train)
 top_mlp = grid_search.best_estimator_
+best_mlp_aba = grid_search.best_params_
 y_pred_top_mlp_aba = top_mlp.predict(abalone_X_test)
 
 
 #part 5
-
-
-#Evaluate and print results
-# def evaluate_classifier(y_true, y_pred, classifier_name, data_set):
-#     print(f"Data Set: {data_set}")
-#     print(f"Classifier: {classifier_name}")
-#     print("Confusion Matrix:\n", confusion_matrix(y_true, y_pred))
-#     print("Classification Report:\n", classification_report(y_true, y_pred))
-#     print(f"Accuracy: {accuracy_score(y_true, y_pred)}\n")
-
-# evaluate_classifier(penguins_y_test, y_pred_base_dt, "Base Decision Tree", "penguin")
-# evaluate_classifier(penguins_y_test, y_pred_top_dt, "Top Decision Tree", "penguin")
-# evaluate_classifier(penguins_y_test, y_pred_base_mlp, "Base MLP", "penguin")
-# evaluate_classifier(penguins_y_test, y_pred_top_mlp, "Top MLP", "penguin")
-
-# evaluate_classifier(abalone_y_test, y_pred_base_dt_aba, "Base Decision Tree", "abalone")
-# evaluate_classifier(abalone_y_test, y_pred_top_dt_aba, "Top Decision Tree", "abalone")
-# evaluate_classifier(abalone_y_test, y_pred_base_mlp_aba, "Base MLP", "abalone")
-# evaluate_classifier(abalone_y_test, y_pred_top_mlp_aba, "Top MLP", "abalone")
-
-
-
 
 #Print in output file, we can remove the printing in terminal for just the file after finishing 
 
@@ -217,6 +199,14 @@ def evaluate_classifier(y_true, y_pred, classifier_name, file, data_set):
     file.write(f"Data Set: {data_set}"+ '\n')
     file.write("(A)"+ '\n')
     file.write(f"Classifier: {classifier_name}\n")
+    if(classifier_name=='Top Decision Tree' and data_set == 'penguin'):
+        file.write(f"Best Hyperparameter: { best_dt }" + "\n")
+    if(classifier_name=='Top Decision Tree' and data_set == 'abalone'):
+        file.write(f"Best Hyperparameter: { best_dt_aba }" + "\n")
+    if(classifier_name=='Top MLP' and data_set== 'penguin'):
+        file.write(f"Best Hyperparameter: { best_mlp }" + "\n")
+    if(classifier_name=='Top MLP' and data_set== 'abalone'):
+        file.write(f"Best Hyperparameter: { best_mlp_aba }" + "\n")
     file.write("(B)"+ '\n')
     file.write("Confusion Matrix:\n" + str(confusion_matrix(y_true, y_pred)) + "\n")
     file.write("(C)"+ "(D)"+  '\n')
