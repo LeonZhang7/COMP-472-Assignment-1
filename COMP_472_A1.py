@@ -226,6 +226,7 @@ with open('abalone-performance.txt', 'w') as file_aba:
     evaluate_classifier(abalone_y_test, y_pred_base_mlp_aba, "Base MLP", file_aba,"abalone")
     evaluate_classifier(abalone_y_test, y_pred_top_mlp_aba, "Top MLP", file_aba, "abalone")
 
+#part 6
 def repeat_experiment(model, X_train, X_test, y_train, y_test, model_name, file, data_set):
     accuracies = []
     macro_f1s = []
@@ -269,32 +270,5 @@ with open('abalone-performance.txt', 'a') as file_aba:
                       file_aba, "abalone")
     repeat_experiment(top_mlp_aba, abalone_X_train, abalone_X_test, abalone_y_train, abalone_y_test, "Top MLP", file_aba,
                       "abalone")
-#6 
-# # Initialize lists to store metrics for each run
-# accuracies = []
-# macro_f1s = []
-# weighted_f1s = []
 
-# # Loop for 5 iterations
-# for i in range(5):
 
-#     # Get the evaluation metrics
-#     report = classification_report(abalone_y_test, penguins_y_test, output_dict=True)
-#     accuracies.append(report['accuracy'])
-#     macro_f1s.append(report['macro avg']['f1-score'])
-#     weighted_f1s.append(report['weighted avg']['f1-score'])
-
-# # Calculate averages and variances
-# average_accuracy = np.mean(accuracies)
-# variance_accuracy = np.var(accuracies)
-# average_macro_f1 = np.mean(macro_f1s)
-# variance_macro_f1 = np.var(macro_f1s)
-# average_weighted_f1 = np.mean(weighted_f1s)
-# variance_weighted_f1 = np.var(weighted_f1s)
-
-# # Append results to performance files
-# with open('performance.txt', 'a') as file:
-#     file.write("Averages and Variances for 5 Runs\n")
-#     file.write(f"(A) Average Accuracy: {average_accuracy}, Variance: {variance_accuracy}\n")
-#     file.write(f"(B) Average Macro-average F1: {average_macro_f1}, Variance: {variance_macro_f1}\n")
-#     file.write(f"(C) Average Weighted-average F1: {average_weighted_f1}, Variance: {variance_weighted_f1}\n")
