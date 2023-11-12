@@ -1,0 +1,552 @@
+--------------------------------------------------
+Data Set: abalone
+(A)
+Classifier: Base Decision Tree
+(B)
+Confusion Matrix:
+[[110  31 128]
+ [ 42 171  64]
+ [119  45 126]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+           F       0.41      0.41      0.41       269
+           I       0.69      0.62      0.65       277
+           M       0.40      0.43      0.41       290
+
+    accuracy                           0.49       836
+   macro avg       0.50      0.49      0.49       836
+weighted avg       0.50      0.49      0.49       836
+
+Accuracy: 0.4868421052631579
+--------------------------------------------------
+Data Set: abalone
+(A)
+Classifier: Top Decision Tree
+Best Hyperparameter: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 5}
+(B)
+Confusion Matrix:
+[[ 71  27 171]
+ [ 25 201  51]
+ [ 58  46 186]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+           F       0.46      0.26      0.34       269
+           I       0.73      0.73      0.73       277
+           M       0.46      0.64      0.53       290
+
+    accuracy                           0.55       836
+   macro avg       0.55      0.54      0.53       836
+weighted avg       0.55      0.55      0.53       836
+
+Accuracy: 0.5478468899521531
+--------------------------------------------------
+Data Set: abalone
+(A)
+Classifier: Base MLP
+(B)
+Confusion Matrix:
+[[ 57  35 177]
+ [  6 204  67]
+ [ 57  51 182]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+           F       0.47      0.21      0.29       269
+           I       0.70      0.74      0.72       277
+           M       0.43      0.63      0.51       290
+
+    accuracy                           0.53       836
+   macro avg       0.54      0.53      0.51       836
+weighted avg       0.53      0.53      0.51       836
+
+Accuracy: 0.5299043062200957
+--------------------------------------------------
+Data Set: abalone
+(A)
+Classifier: Top MLP
+Best Hyperparameter: {'activation': 'tanh', 'hidden_layer_sizes': (10, 10, 10), 'solver': 'adam'}
+(B)
+Confusion Matrix:
+[[ 49  28 192]
+ [  9 217  51]
+ [ 62  54 174]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+           F       0.41      0.18      0.25       269
+           I       0.73      0.78      0.75       277
+           M       0.42      0.60      0.49       290
+
+    accuracy                           0.53       836
+   macro avg       0.52      0.52      0.50       836
+weighted avg       0.52      0.53      0.50       836
+
+Accuracy: 0.5263157894736842
+--------------------------------------------------
+Data Set: abalone
+(A)
+Classifier: Base Decision Tree
+(B)
+Confusion Matrix:
+[[105  36 128]
+ [ 51 165  61]
+ [117  43 130]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+           F       0.38      0.39      0.39       269
+           I       0.68      0.60      0.63       277
+           M       0.41      0.45      0.43       290
+
+    accuracy                           0.48       836
+   macro avg       0.49      0.48      0.48       836
+weighted avg       0.49      0.48      0.48       836
+
+Accuracy: 0.4784688995215311
+--------------------------------------------------
+Data Set: abalone
+(A)
+Classifier: Base Decision Tree
+(B)
+Confusion Matrix:
+[[106  37 126]
+ [ 54 168  55]
+ [119  42 129]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+           F       0.38      0.39      0.39       269
+           I       0.68      0.61      0.64       277
+           M       0.42      0.44      0.43       290
+
+    accuracy                           0.48       836
+   macro avg       0.49      0.48      0.49       836
+weighted avg       0.49      0.48      0.49       836
+
+Accuracy: 0.4820574162679426
+--------------------------------------------------
+Data Set: abalone
+(A)
+Classifier: Base Decision Tree
+(B)
+Confusion Matrix:
+[[108  36 125]
+ [ 46 166  65]
+ [111  41 138]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+           F       0.41      0.40      0.40       269
+           I       0.68      0.60      0.64       277
+           M       0.42      0.48      0.45       290
+
+    accuracy                           0.49       836
+   macro avg       0.50      0.49      0.50       836
+weighted avg       0.50      0.49      0.50       836
+
+Accuracy: 0.49282296650717705
+--------------------------------------------------
+Data Set: abalone
+(A)
+Classifier: Base Decision Tree
+(B)
+Confusion Matrix:
+[[101  40 128]
+ [ 47 172  58]
+ [113  38 139]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+           F       0.39      0.38      0.38       269
+           I       0.69      0.62      0.65       277
+           M       0.43      0.48      0.45       290
+
+    accuracy                           0.49       836
+   macro avg       0.50      0.49      0.50       836
+weighted avg       0.50      0.49      0.50       836
+
+Accuracy: 0.49282296650717705
+--------------------------------------------------
+Data Set: abalone
+(A)
+Classifier: Base Decision Tree
+(B)
+Confusion Matrix:
+[[103  37 129]
+ [ 40 172  65]
+ [112  46 132]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+           F       0.40      0.38      0.39       269
+           I       0.67      0.62      0.65       277
+           M       0.40      0.46      0.43       290
+
+    accuracy                           0.49       836
+   macro avg       0.49      0.49      0.49       836
+weighted avg       0.49      0.49      0.49       836
+
+Accuracy: 0.4868421052631579
+A) Average Accuracy: 0.4866028708133971, Variance: 3.285181200064112e-05
+B) Average Macro-average F1: 0.48997699265701644, Variance: 2.8319128199154384e-05
+C) Average Weighted-average F1: 0.49010133775955345, Variance: 2.92605999867568e-05
+--------------------------------------------------
+Data Set: abalone
+(A)
+Classifier: Top Decision Tree
+Best Hyperparameter: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 5}
+(B)
+Confusion Matrix:
+[[ 70  27 172]
+ [ 25 201  51]
+ [ 58  46 186]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+           F       0.46      0.26      0.33       269
+           I       0.73      0.73      0.73       277
+           M       0.45      0.64      0.53       290
+
+    accuracy                           0.55       836
+   macro avg       0.55      0.54      0.53       836
+weighted avg       0.55      0.55      0.53       836
+
+Accuracy: 0.5466507177033493
+--------------------------------------------------
+Data Set: abalone
+(A)
+Classifier: Top Decision Tree
+Best Hyperparameter: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 5}
+(B)
+Confusion Matrix:
+[[ 71  27 171]
+ [ 25 201  51]
+ [ 58  46 186]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+           F       0.46      0.26      0.34       269
+           I       0.73      0.73      0.73       277
+           M       0.46      0.64      0.53       290
+
+    accuracy                           0.55       836
+   macro avg       0.55      0.54      0.53       836
+weighted avg       0.55      0.55      0.53       836
+
+Accuracy: 0.5478468899521531
+--------------------------------------------------
+Data Set: abalone
+(A)
+Classifier: Top Decision Tree
+Best Hyperparameter: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 5}
+(B)
+Confusion Matrix:
+[[ 71  27 171]
+ [ 25 201  51]
+ [ 58  46 186]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+           F       0.46      0.26      0.34       269
+           I       0.73      0.73      0.73       277
+           M       0.46      0.64      0.53       290
+
+    accuracy                           0.55       836
+   macro avg       0.55      0.54      0.53       836
+weighted avg       0.55      0.55      0.53       836
+
+Accuracy: 0.5478468899521531
+--------------------------------------------------
+Data Set: abalone
+(A)
+Classifier: Top Decision Tree
+Best Hyperparameter: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 5}
+(B)
+Confusion Matrix:
+[[ 70  27 172]
+ [ 24 201  52]
+ [ 58  46 186]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+           F       0.46      0.26      0.33       269
+           I       0.73      0.73      0.73       277
+           M       0.45      0.64      0.53       290
+
+    accuracy                           0.55       836
+   macro avg       0.55      0.54      0.53       836
+weighted avg       0.55      0.55      0.53       836
+
+Accuracy: 0.5466507177033493
+--------------------------------------------------
+Data Set: abalone
+(A)
+Classifier: Top Decision Tree
+Best Hyperparameter: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_split': 5}
+(B)
+Confusion Matrix:
+[[ 71  27 171]
+ [ 25 201  51]
+ [ 58  46 186]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+           F       0.46      0.26      0.34       269
+           I       0.73      0.73      0.73       277
+           M       0.46      0.64      0.53       290
+
+    accuracy                           0.55       836
+   macro avg       0.55      0.54      0.53       836
+weighted avg       0.55      0.55      0.53       836
+
+Accuracy: 0.5478468899521531
+A) Average Accuracy: 0.5473684210526316, Variance: 3.4339873171403704e-07
+B) Average Macro-average F1: 0.5321180991511635, Variance: 5.871770758830138e-07
+C) Average Weighted-average F1: 0.5340171603008547, Variance: 5.681475946422947e-07
+--------------------------------------------------
+Data Set: abalone
+(A)
+Classifier: Base MLP
+(B)
+Confusion Matrix:
+[[ 58  32 179]
+ [ 12 215  50]
+ [ 68  56 166]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+           F       0.42      0.22      0.29       269
+           I       0.71      0.78      0.74       277
+           M       0.42      0.57      0.48       290
+
+    accuracy                           0.53       836
+   macro avg       0.52      0.52      0.50       836
+weighted avg       0.52      0.53      0.51       836
+
+Accuracy: 0.5251196172248804
+--------------------------------------------------
+Data Set: abalone
+(A)
+Classifier: Base MLP
+(B)
+Confusion Matrix:
+[[191  38  40]
+ [ 48 209  20]
+ [185  54  51]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+           F       0.45      0.71      0.55       269
+           I       0.69      0.75      0.72       277
+           M       0.46      0.18      0.25       290
+
+    accuracy                           0.54       836
+   macro avg       0.53      0.55      0.51       836
+weighted avg       0.53      0.54      0.51       836
+
+Accuracy: 0.5394736842105263
+--------------------------------------------------
+Data Set: abalone
+(A)
+Classifier: Base MLP
+(B)
+Confusion Matrix:
+[[118  36 115]
+ [ 25 206  46]
+ [125  50 115]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+           F       0.44      0.44      0.44       269
+           I       0.71      0.74      0.72       277
+           M       0.42      0.40      0.41       290
+
+    accuracy                           0.53       836
+   macro avg       0.52      0.53      0.52       836
+weighted avg       0.52      0.53      0.52       836
+
+Accuracy: 0.5251196172248804
+--------------------------------------------------
+Data Set: abalone
+(A)
+Classifier: Base MLP
+(B)
+Confusion Matrix:
+[[ 46  34 189]
+ [  6 207  64]
+ [ 46  50 194]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+           F       0.47      0.17      0.25       269
+           I       0.71      0.75      0.73       277
+           M       0.43      0.67      0.53       290
+
+    accuracy                           0.53       836
+   macro avg       0.54      0.53      0.50       836
+weighted avg       0.54      0.53      0.50       836
+
+Accuracy: 0.534688995215311
+--------------------------------------------------
+Data Set: abalone
+(A)
+Classifier: Base MLP
+(B)
+Confusion Matrix:
+[[ 97  37 135]
+ [ 21 215  41]
+ [ 97  58 135]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+           F       0.45      0.36      0.40       269
+           I       0.69      0.78      0.73       277
+           M       0.43      0.47      0.45       290
+
+    accuracy                           0.53       836
+   macro avg       0.53      0.53      0.53       836
+weighted avg       0.53      0.53      0.53       836
+
+Accuracy: 0.534688995215311
+A) Average Accuracy: 0.5318181818181819, Variance: 3.2966278244545435e-05
+B) Average Macro-average F1: 0.5132255051111412, Variance: 0.00010731259941696171
+C) Average Weighted-average F1: 0.5130642464222661, Variance: 9.637116468569995e-05
+--------------------------------------------------
+Data Set: abalone
+(A)
+Classifier: Top MLP
+Best Hyperparameter: {'activation': 'tanh', 'hidden_layer_sizes': (10, 10, 10), 'solver': 'adam'}
+(B)
+Confusion Matrix:
+[[ 38  30 201]
+ [  5 218  54]
+ [ 39  53 198]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+           F       0.46      0.14      0.22       269
+           I       0.72      0.79      0.75       277
+           M       0.44      0.68      0.53       290
+
+    accuracy                           0.54       836
+   macro avg       0.54      0.54      0.50       836
+weighted avg       0.54      0.54      0.50       836
+
+Accuracy: 0.5430622009569378
+--------------------------------------------------
+Data Set: abalone
+(A)
+Classifier: Top MLP
+Best Hyperparameter: {'activation': 'tanh', 'hidden_layer_sizes': (10, 10, 10), 'solver': 'adam'}
+(B)
+Confusion Matrix:
+[[ 69  30 170]
+ [ 14 220  43]
+ [ 80  53 157]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+           F       0.42      0.26      0.32       269
+           I       0.73      0.79      0.76       277
+           M       0.42      0.54      0.48       290
+
+    accuracy                           0.53       836
+   macro avg       0.52      0.53      0.52       836
+weighted avg       0.52      0.53      0.52       836
+
+Accuracy: 0.5334928229665071
+--------------------------------------------------
+Data Set: abalone
+(A)
+Classifier: Top MLP
+Best Hyperparameter: {'activation': 'tanh', 'hidden_layer_sizes': (10, 10, 10), 'solver': 'adam'}
+(B)
+Confusion Matrix:
+[[ 86  30 153]
+ [ 18 217  42]
+ [103  53 134]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+           F       0.42      0.32      0.36       269
+           I       0.72      0.78      0.75       277
+           M       0.41      0.46      0.43       290
+
+    accuracy                           0.52       836
+   macro avg       0.52      0.52      0.52       836
+weighted avg       0.51      0.52      0.52       836
+
+Accuracy: 0.5227272727272727
+--------------------------------------------------
+Data Set: abalone
+(A)
+Classifier: Top MLP
+Best Hyperparameter: {'activation': 'tanh', 'hidden_layer_sizes': (10, 10, 10), 'solver': 'adam'}
+(B)
+Confusion Matrix:
+[[ 71  29 169]
+ [ 13 216  48]
+ [ 89  50 151]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+           F       0.41      0.26      0.32       269
+           I       0.73      0.78      0.76       277
+           M       0.41      0.52      0.46       290
+
+    accuracy                           0.52       836
+   macro avg       0.52      0.52      0.51       836
+weighted avg       0.52      0.52      0.51       836
+
+Accuracy: 0.5239234449760766
+--------------------------------------------------
+Data Set: abalone
+(A)
+Classifier: Top MLP
+Best Hyperparameter: {'activation': 'tanh', 'hidden_layer_sizes': (10, 10, 10), 'solver': 'adam'}
+(B)
+Confusion Matrix:
+[[ 91  29 149]
+ [ 18 219  40]
+ [106  53 131]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+           F       0.42      0.34      0.38       269
+           I       0.73      0.79      0.76       277
+           M       0.41      0.45      0.43       290
+
+    accuracy                           0.53       836
+   macro avg       0.52      0.53      0.52       836
+weighted avg       0.52      0.53      0.52       836
+
+Accuracy: 0.527511961722488
+A) Average Accuracy: 0.5301435406698565, Variance: 5.574506078157549e-05
+B) Average Macro-average F1: 0.5135279280935854, Variance: 4.676624338100623e-05
+C) Average Weighted-average F1: 0.5146516163495793, Variance: 3.3874445328394814e-05

@@ -1,0 +1,552 @@
+--------------------------------------------------
+Data Set: penguin
+(A)
+Classifier: Base Decision Tree
+(B)
+Confusion Matrix:
+[[31  0  0]
+ [ 0 13  0]
+ [ 0  0 23]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+      Adelie       1.00      1.00      1.00        31
+   Chinstrap       1.00      1.00      1.00        13
+      Gentoo       1.00      1.00      1.00        23
+
+    accuracy                           1.00        67
+   macro avg       1.00      1.00      1.00        67
+weighted avg       1.00      1.00      1.00        67
+
+Accuracy: 1.0
+--------------------------------------------------
+Data Set: penguin
+(A)
+Classifier: Top Decision Tree
+Best Hyperparameter: {'criterion': 'gini', 'max_depth': None, 'min_samples_split': 5}
+(B)
+Confusion Matrix:
+[[30  1  0]
+ [ 0 13  0]
+ [ 0  0 23]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+      Adelie       1.00      0.97      0.98        31
+   Chinstrap       0.93      1.00      0.96        13
+      Gentoo       1.00      1.00      1.00        23
+
+    accuracy                           0.99        67
+   macro avg       0.98      0.99      0.98        67
+weighted avg       0.99      0.99      0.99        67
+
+Accuracy: 0.9850746268656716
+--------------------------------------------------
+Data Set: penguin
+(A)
+Classifier: Base MLP
+(B)
+Confusion Matrix:
+[[31  0  0]
+ [13  0  0]
+ [23  0  0]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+      Adelie       0.46      1.00      0.63        31
+   Chinstrap       0.00      0.00      0.00        13
+      Gentoo       0.00      0.00      0.00        23
+
+    accuracy                           0.46        67
+   macro avg       0.15      0.33      0.21        67
+weighted avg       0.21      0.46      0.29        67
+
+Accuracy: 0.4626865671641791
+--------------------------------------------------
+Data Set: penguin
+(A)
+Classifier: Top MLP
+Best Hyperparameter: {'activation': 'tanh', 'hidden_layer_sizes': (30, 50), 'solver': 'adam'}
+(B)
+Confusion Matrix:
+[[26  2  3]
+ [ 4  9  0]
+ [ 3  0 20]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+      Adelie       0.79      0.84      0.81        31
+   Chinstrap       0.82      0.69      0.75        13
+      Gentoo       0.87      0.87      0.87        23
+
+    accuracy                           0.82        67
+   macro avg       0.83      0.80      0.81        67
+weighted avg       0.82      0.82      0.82        67
+
+Accuracy: 0.8208955223880597
+--------------------------------------------------
+Data Set: penguin
+(A)
+Classifier: Base Decision Tree
+(B)
+Confusion Matrix:
+[[30  1  0]
+ [ 0 13  0]
+ [ 0  0 23]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+      Adelie       1.00      0.97      0.98        31
+   Chinstrap       0.93      1.00      0.96        13
+      Gentoo       1.00      1.00      1.00        23
+
+    accuracy                           0.99        67
+   macro avg       0.98      0.99      0.98        67
+weighted avg       0.99      0.99      0.99        67
+
+Accuracy: 0.9850746268656716
+--------------------------------------------------
+Data Set: penguin
+(A)
+Classifier: Base Decision Tree
+(B)
+Confusion Matrix:
+[[30  1  0]
+ [ 0 13  0]
+ [ 0  0 23]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+      Adelie       1.00      0.97      0.98        31
+   Chinstrap       0.93      1.00      0.96        13
+      Gentoo       1.00      1.00      1.00        23
+
+    accuracy                           0.99        67
+   macro avg       0.98      0.99      0.98        67
+weighted avg       0.99      0.99      0.99        67
+
+Accuracy: 0.9850746268656716
+--------------------------------------------------
+Data Set: penguin
+(A)
+Classifier: Base Decision Tree
+(B)
+Confusion Matrix:
+[[30  1  0]
+ [ 0 13  0]
+ [ 0  0 23]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+      Adelie       1.00      0.97      0.98        31
+   Chinstrap       0.93      1.00      0.96        13
+      Gentoo       1.00      1.00      1.00        23
+
+    accuracy                           0.99        67
+   macro avg       0.98      0.99      0.98        67
+weighted avg       0.99      0.99      0.99        67
+
+Accuracy: 0.9850746268656716
+--------------------------------------------------
+Data Set: penguin
+(A)
+Classifier: Base Decision Tree
+(B)
+Confusion Matrix:
+[[31  0  0]
+ [ 0 13  0]
+ [ 0  0 23]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+      Adelie       1.00      1.00      1.00        31
+   Chinstrap       1.00      1.00      1.00        13
+      Gentoo       1.00      1.00      1.00        23
+
+    accuracy                           1.00        67
+   macro avg       1.00      1.00      1.00        67
+weighted avg       1.00      1.00      1.00        67
+
+Accuracy: 1.0
+--------------------------------------------------
+Data Set: penguin
+(A)
+Classifier: Base Decision Tree
+(B)
+Confusion Matrix:
+[[31  0  0]
+ [ 0 13  0]
+ [ 0  0 23]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+      Adelie       1.00      1.00      1.00        31
+   Chinstrap       1.00      1.00      1.00        13
+      Gentoo       1.00      1.00      1.00        23
+
+    accuracy                           1.00        67
+   macro avg       1.00      1.00      1.00        67
+weighted avg       1.00      1.00      1.00        67
+
+Accuracy: 1.0
+A) Average Accuracy: 0.991044776119403, Variance: 5.3464023167743686e-05
+B) Average Macro-average F1: 0.9893139040680025, Variance: 7.612843084523626e-05
+C) Average Weighted-average F1: 0.991137210124242, Variance: 5.2366029587890406e-05
+--------------------------------------------------
+Data Set: penguin
+(A)
+Classifier: Top Decision Tree
+Best Hyperparameter: {'criterion': 'gini', 'max_depth': None, 'min_samples_split': 5}
+(B)
+Confusion Matrix:
+[[31  0  0]
+ [ 0 13  0]
+ [ 0  0 23]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+      Adelie       1.00      1.00      1.00        31
+   Chinstrap       1.00      1.00      1.00        13
+      Gentoo       1.00      1.00      1.00        23
+
+    accuracy                           1.00        67
+   macro avg       1.00      1.00      1.00        67
+weighted avg       1.00      1.00      1.00        67
+
+Accuracy: 1.0
+--------------------------------------------------
+Data Set: penguin
+(A)
+Classifier: Top Decision Tree
+Best Hyperparameter: {'criterion': 'gini', 'max_depth': None, 'min_samples_split': 5}
+(B)
+Confusion Matrix:
+[[30  1  0]
+ [ 0 13  0]
+ [ 0  0 23]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+      Adelie       1.00      0.97      0.98        31
+   Chinstrap       0.93      1.00      0.96        13
+      Gentoo       1.00      1.00      1.00        23
+
+    accuracy                           0.99        67
+   macro avg       0.98      0.99      0.98        67
+weighted avg       0.99      0.99      0.99        67
+
+Accuracy: 0.9850746268656716
+--------------------------------------------------
+Data Set: penguin
+(A)
+Classifier: Top Decision Tree
+Best Hyperparameter: {'criterion': 'gini', 'max_depth': None, 'min_samples_split': 5}
+(B)
+Confusion Matrix:
+[[31  0  0]
+ [ 0 13  0]
+ [ 0  0 23]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+      Adelie       1.00      1.00      1.00        31
+   Chinstrap       1.00      1.00      1.00        13
+      Gentoo       1.00      1.00      1.00        23
+
+    accuracy                           1.00        67
+   macro avg       1.00      1.00      1.00        67
+weighted avg       1.00      1.00      1.00        67
+
+Accuracy: 1.0
+--------------------------------------------------
+Data Set: penguin
+(A)
+Classifier: Top Decision Tree
+Best Hyperparameter: {'criterion': 'gini', 'max_depth': None, 'min_samples_split': 5}
+(B)
+Confusion Matrix:
+[[30  1  0]
+ [ 0 13  0]
+ [ 0  0 23]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+      Adelie       1.00      0.97      0.98        31
+   Chinstrap       0.93      1.00      0.96        13
+      Gentoo       1.00      1.00      1.00        23
+
+    accuracy                           0.99        67
+   macro avg       0.98      0.99      0.98        67
+weighted avg       0.99      0.99      0.99        67
+
+Accuracy: 0.9850746268656716
+--------------------------------------------------
+Data Set: penguin
+(A)
+Classifier: Top Decision Tree
+Best Hyperparameter: {'criterion': 'gini', 'max_depth': None, 'min_samples_split': 5}
+(B)
+Confusion Matrix:
+[[30  1  0]
+ [ 0 13  0]
+ [ 0  0 23]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+      Adelie       1.00      0.97      0.98        31
+   Chinstrap       0.93      1.00      0.96        13
+      Gentoo       1.00      1.00      1.00        23
+
+    accuracy                           0.99        67
+   macro avg       0.98      0.99      0.98        67
+weighted avg       0.99      0.99      0.99        67
+
+Accuracy: 0.9850746268656716
+A) Average Accuracy: 0.9910447761194028, Variance: 5.346402316774367e-05
+B) Average Macro-average F1: 0.9893139040680025, Variance: 7.612843084523626e-05
+C) Average Weighted-average F1: 0.991137210124242, Variance: 5.236602958789042e-05
+--------------------------------------------------
+Data Set: penguin
+(A)
+Classifier: Base MLP
+(B)
+Confusion Matrix:
+[[ 3  5 23]
+ [ 3  6  4]
+ [ 0  8 15]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+      Adelie       0.50      0.10      0.16        31
+   Chinstrap       0.32      0.46      0.37        13
+      Gentoo       0.36      0.65      0.46        23
+
+    accuracy                           0.36        67
+   macro avg       0.39      0.40      0.33        67
+weighted avg       0.42      0.36      0.31        67
+
+Accuracy: 0.3582089552238806
+--------------------------------------------------
+Data Set: penguin
+(A)
+Classifier: Base MLP
+(B)
+Confusion Matrix:
+[[26  5  0]
+ [13  0  0]
+ [ 4 19  0]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+      Adelie       0.60      0.84      0.70        31
+   Chinstrap       0.00      0.00      0.00        13
+      Gentoo       0.00      0.00      0.00        23
+
+    accuracy                           0.39        67
+   macro avg       0.20      0.28      0.23        67
+weighted avg       0.28      0.39      0.33        67
+
+Accuracy: 0.3880597014925373
+--------------------------------------------------
+Data Set: penguin
+(A)
+Classifier: Base MLP
+(B)
+Confusion Matrix:
+[[10  7 14]
+ [ 0  2 11]
+ [ 0  0 23]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+      Adelie       1.00      0.32      0.49        31
+   Chinstrap       0.22      0.15      0.18        13
+      Gentoo       0.48      1.00      0.65        23
+
+    accuracy                           0.52        67
+   macro avg       0.57      0.49      0.44        67
+weighted avg       0.67      0.52      0.48        67
+
+Accuracy: 0.5223880597014925
+--------------------------------------------------
+Data Set: penguin
+(A)
+Classifier: Base MLP
+(B)
+Confusion Matrix:
+[[31  0  0]
+ [13  0  0]
+ [12  0 11]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+      Adelie       0.55      1.00      0.71        31
+   Chinstrap       0.00      0.00      0.00        13
+      Gentoo       1.00      0.48      0.65        23
+
+    accuracy                           0.63        67
+   macro avg       0.52      0.49      0.45        67
+weighted avg       0.60      0.63      0.55        67
+
+Accuracy: 0.6268656716417911
+--------------------------------------------------
+Data Set: penguin
+(A)
+Classifier: Base MLP
+(B)
+Confusion Matrix:
+[[ 0  2 29]
+ [ 0  1 12]
+ [ 0 13 10]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+      Adelie       0.00      0.00      0.00        31
+   Chinstrap       0.06      0.08      0.07        13
+      Gentoo       0.20      0.43      0.27        23
+
+    accuracy                           0.16        67
+   macro avg       0.09      0.17      0.11        67
+weighted avg       0.08      0.16      0.11        67
+
+Accuracy: 0.16417910447761194
+A) Average Accuracy: 0.4119402985074626, Variance: 0.024646914680329694
+B) Average Macro-average F1: 0.3145234666277288, Variance: 0.016428310012611785
+C) Average Weighted-average F1: 0.35455303392408155, Variance: 0.024085230198193384
+--------------------------------------------------
+Data Set: penguin
+(A)
+Classifier: Top MLP
+Best Hyperparameter: {'activation': 'tanh', 'hidden_layer_sizes': (30, 50), 'solver': 'adam'}
+(B)
+Confusion Matrix:
+[[23  0  8]
+ [13  0  0]
+ [ 1  0 22]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+      Adelie       0.62      0.74      0.68        31
+   Chinstrap       0.00      0.00      0.00        13
+      Gentoo       0.73      0.96      0.83        23
+
+    accuracy                           0.67        67
+   macro avg       0.45      0.57      0.50        67
+weighted avg       0.54      0.67      0.60        67
+
+Accuracy: 0.6716417910447762
+--------------------------------------------------
+Data Set: penguin
+(A)
+Classifier: Top MLP
+Best Hyperparameter: {'activation': 'tanh', 'hidden_layer_sizes': (30, 50), 'solver': 'adam'}
+(B)
+Confusion Matrix:
+[[31  0  0]
+ [13  0  0]
+ [23  0  0]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+      Adelie       0.46      1.00      0.63        31
+   Chinstrap       0.00      0.00      0.00        13
+      Gentoo       0.00      0.00      0.00        23
+
+    accuracy                           0.46        67
+   macro avg       0.15      0.33      0.21        67
+weighted avg       0.21      0.46      0.29        67
+
+Accuracy: 0.4626865671641791
+--------------------------------------------------
+Data Set: penguin
+(A)
+Classifier: Top MLP
+Best Hyperparameter: {'activation': 'tanh', 'hidden_layer_sizes': (30, 50), 'solver': 'adam'}
+(B)
+Confusion Matrix:
+[[31  0  0]
+ [13  0  0]
+ [23  0  0]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+      Adelie       0.46      1.00      0.63        31
+   Chinstrap       0.00      0.00      0.00        13
+      Gentoo       0.00      0.00      0.00        23
+
+    accuracy                           0.46        67
+   macro avg       0.15      0.33      0.21        67
+weighted avg       0.21      0.46      0.29        67
+
+Accuracy: 0.4626865671641791
+--------------------------------------------------
+Data Set: penguin
+(A)
+Classifier: Top MLP
+Best Hyperparameter: {'activation': 'tanh', 'hidden_layer_sizes': (30, 50), 'solver': 'adam'}
+(B)
+Confusion Matrix:
+[[31  0  0]
+ [13  0  0]
+ [23  0  0]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+      Adelie       0.46      1.00      0.63        31
+   Chinstrap       0.00      0.00      0.00        13
+      Gentoo       0.00      0.00      0.00        23
+
+    accuracy                           0.46        67
+   macro avg       0.15      0.33      0.21        67
+weighted avg       0.21      0.46      0.29        67
+
+Accuracy: 0.4626865671641791
+--------------------------------------------------
+Data Set: penguin
+(A)
+Classifier: Top MLP
+Best Hyperparameter: {'activation': 'tanh', 'hidden_layer_sizes': (30, 50), 'solver': 'adam'}
+(B)
+Confusion Matrix:
+[[31  0  0]
+ [13  0  0]
+ [23  0  0]]
+(C)(D)
+Classification Report:
+              precision    recall  f1-score   support
+
+      Adelie       0.46      1.00      0.63        31
+   Chinstrap       0.00      0.00      0.00        13
+      Gentoo       0.00      0.00      0.00        23
+
+    accuracy                           0.46        67
+   macro avg       0.15      0.33      0.21        67
+weighted avg       0.21      0.46      0.29        67
+
+Accuracy: 0.4626865671641791
+A) Average Accuracy: 0.5044776119402986, Variance: 0.00698596569391847
+B) Average Macro-average F1: 0.2691514341585691, Variance: 0.013580210641318369
+C) Average Weighted-average F1: 0.353772858059022, Variance: 0.014909770203120907
