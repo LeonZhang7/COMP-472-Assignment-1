@@ -16,11 +16,12 @@ from sklearn.metrics import f1_score
 abalone_data = pd.read_csv('abalone.csv')
 penguins_data = pd.read_csv('penguins.csv')
 
-
+# Get column names for penguins dataset
 column_names = penguins_data.columns
 print("penguin")
 print(column_names)
 
+# Get column names for abalone dataset
 column_names_aba = abalone_data.columns
 print("abalone")
 print(column_names_aba)
@@ -89,17 +90,27 @@ png_image.save('abalone-classes.gif')
 
 
 #part 3
-#split both the Penguins and Abalone datasets into training and test sets.
-# The code uses a test size of 0.2 (which means 20% of the data will be used for testing, and the remaining 80% for training
+
+# Split the Penguins dataset:
+# The Penguins dataset is divided into training and test sets using a 80/20 split.
+# 'penguins_features' contains the independent variables, while 'penguins_target' contains the dependent variable.
+# 'test_size=0.2' ensures that 20% of the data is reserved for testing, and the remaining 80% is used for training.
+# 'random_state=42' ensures reproducibility of the results by providing a fixed seed for the random number generator used in the split.
 penguins_X_train, penguins_X_test, penguins_y_train, penguins_y_test = train_test_split(penguins_features, penguins_target, test_size=0.2, random_state=42)
+
+# the Abalone dataset is divided into training and test sets using a 80/20 split.
+# 'abalone_features' and 'abalone_target' are the independent and dependent variables respectively.
+# The same 'test_size' and 'random_state' parameters are used to ensure a similar data split and reproducibility.
 abalone_X_train, abalone_X_test, abalone_y_train, abalone_y_test = train_test_split(abalone_features, abalone_target, test_size=0.2, random_state=42)
 
 
 #part 4
 # a) Base Decision Tree
 #penguin
+# Initialize and train a basic decision tree classifier on the penguins training data
 base_dt = DecisionTreeClassifier()
 base_dt.fit(penguins_X_train, penguins_y_train)
+# Predict on the penguins test data using the base decision tree model
 y_pred_base_dt = base_dt.predict(penguins_X_test)
 
 # Plot the decision tree
@@ -111,12 +122,14 @@ plt.show()
 
 
 #abalone
+# Initialize and train a basic decision tree classifier on the abalone training data
 # Fit the classifier without limiting depth
 base_dt = DecisionTreeClassifier()
 base_dt.fit(abalone_X_train, abalone_y_train)
+# Predict on the abalone test data using the base decision tree model
 y_pred_base_dt_aba = base_dt.predict(abalone_X_test)
 
-# # Plot the decision tree with limited depth
+# Plotting the decision tree for the Abalone dataset, limiting the depth for easier visualization
 plt.figure(figsize=(20,10))
 plot_tree(base_dt, filled=True, feature_names=abalone_features.columns, class_names=base_dt.classes_, max_depth=2 )
 plt.title('Decision Tree for Abalone Dataset')
@@ -125,16 +138,21 @@ plt.show()
 
 
 # b) Top Decision Tree with GridSearch
+# Define a parameter grid for GridSearchCV to optimize Decision Tree parameters
 param_grid = {
-    'criterion': ['gini', 'entropy'],
-    'max_depth': [None, 5, 10],  # Add more values
-    'min_samples_split': [2, 5, 10]  # Add more values
+    'criterion': ['gini', 'entropy'], # Criteria used to decide the split
+    'max_depth': [None, 5, 10],  # Maximum depth of the tree, None means unlimited
+    'min_samples_split': [2, 5, 10]  # Minimum number of samples required to split an internal node
 }
 #penguin
+# Perform grid search for the Decision Tree Classifier on the penguins dataset
+# This will search different combinations of parameters as defined in param_grid
 grid_search_DT = GridSearchCV(DecisionTreeClassifier(), param_grid, cv=5)
 grid_search_DT.fit(penguins_X_train, penguins_y_train)
+# Retrieve the best estimator (decision tree) and its parameters after the grid search
 top_dt = grid_search_DT.best_estimator_
 best_dt = grid_search_DT.best_params_
+# Predict using the best estimator for the penguins test data
 y_pred_top_dt = top_dt.predict(penguins_X_test)
 
 # Plot the decision tree of the best estimator
@@ -145,10 +163,13 @@ plt.savefig('penguins_top_decision_tree.png')
 plt.show()
 
 #abalone
+# Repeat the same process for the abalone dataset
 grid_search_DT = GridSearchCV(DecisionTreeClassifier(), param_grid, cv=5)
 grid_search_DT.fit(abalone_X_train, abalone_y_train)
+# Retrieve the best estimator (decision tree) and its parameters after the grid search
 top_dt_aba = grid_search_DT.best_estimator_
 best_dt_aba = grid_search_DT.best_params_
+# Predict using the best estimator for the abalone test data
 y_pred_top_dt_aba = top_dt_aba.predict(abalone_X_test)
 
 # Plot the decision tree of the best estimator found by GridSearchCV
@@ -161,33 +182,46 @@ plt.show()
 
 # c) Base MLP
 #penguin
+# Create a base MLP classifier with specific hyperparameters
 base_mlp = MLPClassifier(hidden_layer_sizes=(100, 100), activation='logistic', solver='sgd', max_iter=1000)
+# Fit the base MLP model to the penguins training data
 base_mlp.fit(penguins_X_train, penguins_y_train)
+# Make predictions using the base MLP model for penguins dataset
 y_pred_base_mlp = base_mlp.predict(penguins_X_test)
 
 #abalone
+# Create a base MLP classifier with specific hyperparameters
 base_mlp = MLPClassifier(hidden_layer_sizes=(100, 100), activation='logistic', solver='sgd', max_iter=1000)
+# Fit the base MLP model to the abalone training data
 base_mlp.fit(abalone_X_train, abalone_y_train)
+# Make predictions using the base MLP model for abalone dataset
 y_pred_base_mlp_aba = base_mlp.predict(abalone_X_test)
 
 # d) Top MLP with GridSearch
+# Define a grid of hyperparameters to search over
 param_grid = {
-    'activation': ['logistic', 'tanh', 'relu'],  # 'logistic' is another name for 'sigmoid'
-    'hidden_layer_sizes': [(30, 50), (10, 10, 10)],  # Two network architectures of your choice
-    'solver': ['adam', 'sgd']  # Both 'adam' and 'stochastic gradient descent'
+    'activation': ['logistic', 'tanh', 'relu'],  # Activation functions to try
+    'hidden_layer_sizes': [(30, 50), (10, 10, 10)],  # Two network architectures
+    'solver': ['adam', 'sgd'], # Two different solvers
 }
 #penguin
+# Perform Grid Search Cross-Validation to find the best MLP model for penguins dataset
 grid_search = GridSearchCV(MLPClassifier(), param_grid, cv=5)
 grid_search.fit(penguins_X_train, penguins_y_train)
+# Get the best MLP model and its hyperparameters
 top_mlp = grid_search.best_estimator_
 best_mlp = grid_search.best_params_
+# Make predictions using the best MLP model for penguins dataset
 y_pred_top_mlp = top_mlp.predict(penguins_X_test)
 
 #abalone
+# Perform Grid Search Cross-Validation to find the best MLP model for abalone dataset
 grid_search = GridSearchCV(MLPClassifier(), param_grid, cv=5)
 grid_search.fit(abalone_X_train, abalone_y_train)
+# Get the best MLP model and its hyperparameters for abalone dataset
 top_mlp_aba = grid_search.best_estimator_
 best_mlp_aba = grid_search.best_params_
+# Make predictions using the best MLP model for abalone dataset
 y_pred_top_mlp_aba = top_mlp_aba.predict(abalone_X_test)
 
 
