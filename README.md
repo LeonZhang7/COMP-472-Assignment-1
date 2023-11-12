@@ -10,6 +10,14 @@ This project involves analyzing two datasets: Penguins and Abalones. It applies 
 - matplotlib
 - NumPy
 
+## Running the Script
+Execute the script in a Python environment with the necessary libraries installed. 
+Namely, type in the terminal: 
+- pip install pandas
+- pip install scikit-learn
+- pip install pillow
+- pip install matplotlib
+
 ## Dataset
 - `abalone.csv`: Dataset containing information about abalones.
 - `penguins.csv`: Dataset containing information about penguins.
@@ -53,3 +61,4 @@ This project involves analyzing two datasets: Penguins and Abalones. It applies 
 - `penguins_decision_tree.png`, `abalone_decision_tree.png`: Decision tree plots for base models.
 - `penguins_top_decision_tree.png`, `abalone_top_decision_tree.png`: Decision tree plots for optimized models.
 - `penguin-performance.txt`, `abalone-performance.txt`: Text files containing model performance metrics.
+
