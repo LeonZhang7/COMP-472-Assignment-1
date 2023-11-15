@@ -28,7 +28,7 @@ print(column_names_aba)
 
 #uncomment either method you want to use
 #part 1 a)
-# One-Hot Encoding for 'island' and 'sex' columns
+# One-Hot Encoding for 'island' and 'sex' columns (no ordinal relationship between categories)
 #get_dummies is used to convert 'island' and 'sex' into one-hot encoded vectors.
 penguins_data = pd.get_dummies(penguins_data, columns=['island', 'sex'], drop_first=True)
 
@@ -44,7 +44,7 @@ penguins_data = pd.get_dummies(penguins_data, columns=['island', 'sex'], drop_fi
 
 # Define features and target for the penguins dataset
 penguins_features = penguins_data.drop(columns=['species']) 
-penguins_target = penguins_data['species']  
+penguins_target = penguins_data['species']  # what we are aiming to predict 
 
 # Define features and target for the abalone dataset
 abalone_features = abalone_data.drop(columns=['Type']) 
@@ -52,7 +52,9 @@ abalone_target = abalone_data['Type']
 
 
 
-#part 2
+#part 2 
+# (look like imbalanced classes, accurancy can be misleading so 
+# percision(prediction of positive claims) recall(recheck and validate of positive claims) and f1(mean if both) score better metrics))
 # Calculate class distribution in the penguins target variable
 class_distribution = penguins_target.value_counts(normalize=True) * 100
 
@@ -68,6 +70,7 @@ plt.savefig('penguin-classes.png')
 plt.show()
 
 # Calculate class distribution in the abalone target variable
+#counts each time unique value appears in target, give you proportion and changes to percentage
 class_distribution = abalone_target.value_counts(normalize=True) * 100
 
 # Plot the class distribution
@@ -96,7 +99,9 @@ png_image.save('abalone-classes.gif')
 # 'penguins_features' contains the independent variables, while 'penguins_target' contains the dependent variable.
 # 'test_size=0.2' ensures that 20% of the data is reserved for testing, and the remaining 80% is used for training.
 # 'random_state=42' ensures reproducibility of the results by providing a fixed seed for the random number generator used in the split.
+# train feature and target then test feature and target 
 penguins_X_train, penguins_X_test, penguins_y_train, penguins_y_test = train_test_split(penguins_features, penguins_target, test_size=0.2, random_state=42)
+
 
 # the Abalone dataset is divided into training and test sets using a 80/20 split.
 # 'abalone_features' and 'abalone_target' are the independent and dependent variables respectively.
@@ -110,7 +115,7 @@ abalone_X_train, abalone_X_test, abalone_y_train, abalone_y_test = train_test_sp
 # Initialize and train a basic decision tree classifier on the penguins training data
 base_dt = DecisionTreeClassifier()
 base_dt.fit(penguins_X_train, penguins_y_train)
-# Predict on the penguins test data using the base decision tree model
+# makes prediction on the penguins test data using the base decision tree model
 y_pred_base_dt = base_dt.predict(penguins_X_test)
 
 # Plot the decision tree
